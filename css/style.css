@@ -1426,3 +1426,38 @@ iframe {
     }
 }
 
+
+/* =========================================
+   Social Media Icons
+   ========================================= */
+.footer-social {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.footer-social a {
+    color: var(--color-gold-primary);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+}
+
+.footer-social a:hover {
+    background-color: var(--color-gold-primary);
+    color: var(--color-black-rich);
+    border-color: var(--color-gold-primary);
+    transform: translateY(-3px);
+}
+
+.footer-social svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
