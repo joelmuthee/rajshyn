@@ -1037,6 +1037,17 @@ section.bg-cream p {
     gap: var(--spacing-md);
 }
 
+@media (max-width: 768px) {
+    .showroom-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .showroom-card {
+        padding: var(--spacing-sm);
+    }
+}
+
 .showroom-card {
     background: linear-gradient(145deg, #121212, #0d0d0d);
     border: 1px solid rgba(212, 175, 55, 0.15);
