@@ -1045,6 +1045,7 @@ section.bg-cream p {
 
     .showroom-card {
         padding: var(--spacing-sm);
+        padding-bottom: 2rem;
     }
 }
 
