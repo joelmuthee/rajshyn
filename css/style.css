@@ -1461,3 +1461,53 @@ iframe {
     fill: currentColor;
 }
 
+
+/* =========================================
+   Social Icons in Main Menu
+   ========================================= */
+.nav-social-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 10px; /* Separator from text links */
+}
+
+.nav-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gold-primary) !important; /* Override white text */
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.nav-social-link:hover {
+    background-color: var(--color-gold-primary);
+    color: var(--color-black-rich) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.nav-social-link svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+/* Remove underline hover effect for icons */
+.nav-social-link::after {
+    display: none !important;
+}
+
+/* Mobile Menu Adjustments */
+@media (max-width: 768px) {
+    .nav-social-container {
+        margin-left: 0;
+        margin-top: var(--spacing-sm);
+        justify-content: center;
+    }
+}
+
