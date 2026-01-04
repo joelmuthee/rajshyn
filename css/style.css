@@ -1511,3 +1511,48 @@ iframe {
     }
 }
 
+
+/* =========================================
+   Mobile Typography & Layout Refinements
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Center 'The Rajshyn Story' (About Text) */
+    .about-text {
+        text-align: center;
+        padding-right: 0; /* Reset any desktop padding */
+    }
+
+    /* 2. Mobile Footer Updates */
+    .main-footer .footer-col {
+        text-align: center;
+        align-items: center; /* For flex items if any */
+    }
+
+    /* Center the footer logo */
+    .footer-logo {
+        margin: 0 auto var(--spacing-sm);
+        display: block; /* Ensure margin:auto works */
+    }
+
+    /* Center social icons */
+    .footer-social {
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Reduce footer font size */
+    .footer-col p, 
+    .footer-col a, 
+    .footer-col .address,
+    .footer-bottom p {
+        font-size: 0.9rem !important; /* Force smaller size */
+        line-height: 1.5;
+    }
+    
+    /* Center Footer Bottom */
+    .footer-bottom {
+        text-align: center;
+    }
+}
+
