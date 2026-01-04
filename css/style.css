@@ -1382,3 +1382,30 @@ iframe {
     border-bottom-color: var(--color-gold-primary);
 }
 
+
+/* =========================================
+   Mobile Collections (Smaller Images)
+   ========================================= */
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+}
+
+
+/* =========================================
+   Category Divider Override (Fancy)
+   ========================================= */
+.category-card h3::after {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-gold-primary), transparent);
+    opacity: 0.8;
+    background-color: transparent; /* Override old bg color */
+}
+
+.category-card:hover h3::after {
+    width: 120px;
+}
+
