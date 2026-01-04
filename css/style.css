@@ -1314,7 +1314,8 @@ iframe {
    ========================================= */
 .category-card,
 .value-item,
-.showroom-card {
+.showroom-card,
+.showroom-home-card {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.15);
@@ -1323,7 +1324,8 @@ iframe {
 
 .category-card::before,
 .value-item::before,
-.showroom-card::before {
+.showroom-card::before,
+.showroom-home-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1337,13 +1339,15 @@ iframe {
 
 .category-card:hover::before,
 .value-item:hover::before,
-.showroom-card:hover::before {
+.showroom-card:hover::before,
+.showroom-home-card:hover::before {
     width: 100%;
 }
 
 .category-card:hover,
 .value-item:hover,
-.showroom-card:hover {
+.showroom-card:hover,
+.showroom-home-card:hover {
     transform: translateY(-5px);
     border-color: var(--color-gold-primary);
     box-shadow: var(--shadow-gold);
@@ -1436,14 +1440,16 @@ iframe {
 
     .category-card.active-beam::before,
     .value-item.active-beam::before,
-    .showroom-card.active-beam::before {
+    .showroom-card.active-beam::before,
+    .showroom-home-card.active-beam::before {
         width: 100%;
     }
 
     /* Optional: Provide visual feedback that it's active beyond just the line */
     .category-card.active-beam,
     .value-item.active-beam,
-    .showroom-card.active-beam {
+    .showroom-card.active-beam,
+    .showroom-home-card.active-beam {
         border-color: var(--color-gold-primary);
     }
 }

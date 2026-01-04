@@ -112,7 +112,7 @@ function initBorderBeamAnimations() {
         });
     }, observerOptions);
 
-    const beamElements = document.querySelectorAll('.category-card, .value-item, .showroom-card');
+    const beamElements = document.querySelectorAll('.category-card, .value-item, .showroom-card, .showroom-home-card');
     beamElements.forEach(el => beamObserver.observe(el));
 }
 
