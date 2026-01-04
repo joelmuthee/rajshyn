@@ -1409,3 +1409,20 @@ iframe {
     width: 120px;
 }
 
+
+/* =========================================
+   Mobile Border Beam Animation (On Scroll)
+   ========================================= */
+@media (max-width: 768px) {
+    .category-card.active-beam::before, 
+    .value-item.active-beam::before {
+        width: 100%;
+    }
+    
+    /* Optional: Provide visual feedback that it's active beyond just the line */
+    .category-card.active-beam, 
+    .value-item.active-beam {
+        border-color: var(--color-gold-primary);
+    }
+}
+

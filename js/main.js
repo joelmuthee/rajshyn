@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollAnimations();
     initLazyLoading();
+    initBorderBeamAnimations();
 });
 
 /* Navigation Logic */
@@ -65,7 +66,7 @@ function initScrollAnimations() {
 /* Lazy Loading Images */
 function initLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
-    
+
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -87,3 +88,31 @@ function initLazyLoading() {
         });
     }
 }
+
+/* Border Beam Animation on Scroll (Mobile) */
+function initBorderBeamAnimations() {
+    const observerOptions = {
+        threshold: 0.5, // Trigger when 50% visible
+        rootMargin: '0px'
+    };
+
+    const beamObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active-beam');
+                // Optional: Stop observing once activated if you want it to happen only once
+                // beamObserver.unobserve(entry.target);
+            } else {
+                // Optional: Remove class when out of view to re-trigger animation?
+                // For a 'beam' effect, keeping it active usually looks better, or toggling it.
+                // User said 'appear as you scroll', implying strictly when in view.
+                // Let's remove it when out of view so it re-animates nicely as they scroll up/down.
+                entry.target.classList.remove('active-beam');
+            }
+        });
+    }, observerOptions);
+
+    const beamElements = document.querySelectorAll('.category-card, .value-item');
+    beamElements.forEach(el => beamObserver.observe(el));
+}
+
