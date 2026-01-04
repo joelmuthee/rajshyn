@@ -1350,3 +1350,35 @@ iframe {
     border-bottom-color: var(--color-gold-primary);
 }
 
+
+/* =========================================
+   Mobile Footer Refinements
+   ========================================= */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-col {
+        align-items: center;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .footer-bottom {
+        text-align: center;
+    }
+}
+
+/* Ensure Underline on All Footer Links (Phone & Email) */
+.footer-col a {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+    padding-bottom: 2px;
+    transition: border-color 0.3s ease;
+    display: inline-block; /* Compulsory for border to show on inline elements */
+}
+
+.footer-col a:hover {
+    border-bottom-color: var(--color-gold-primary);
+}
+
