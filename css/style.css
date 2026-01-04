@@ -1248,6 +1248,7 @@ iframe {
 .category-card:hover h3::after {
     width: 80px;
 }
+
 /* =========================================
    Lightbox Modal
    ========================================= */
@@ -1280,8 +1281,13 @@ iframe {
 }
 
 @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
 }
 
 .close-lightbox {
@@ -1306,14 +1312,18 @@ iframe {
 /* =========================================
    Border Beam Animation (Re-applied)
    ========================================= */
-.category-card, .value-item {
+.category-card,
+.value-item,
+.showroom-card {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.15);
     transition: all var(--transition-fast);
 }
 
-.category-card::before, .value-item::before {
+.category-card::before,
+.value-item::before,
+.showroom-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1325,11 +1335,15 @@ iframe {
     z-index: 2;
 }
 
-.category-card:hover::before, .value-item:hover::before {
+.category-card:hover::before,
+.value-item:hover::before,
+.showroom-card:hover::before {
     width: 100%;
 }
 
-.category-card:hover, .value-item:hover {
+.category-card:hover,
+.value-item:hover,
+.showroom-card:hover {
     transform: translateY(-5px);
     border-color: var(--color-gold-primary);
     box-shadow: var(--shadow-gold);
@@ -1339,14 +1353,17 @@ iframe {
 /* =========================================
    Phone Link Styling (Underline)
    ========================================= */
-.phone-link, .footer-col a[href^='tel'] {
+.phone-link,
+.footer-col a[href^='tel'] {
     text-decoration: none;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.3); /* Faint gold underline */
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    /* Faint gold underline */
     padding-bottom: 2px;
     transition: border-color 0.3s ease;
 }
 
-.phone-link:hover, .footer-col a[href^='tel']:hover {
+.phone-link:hover,
+.footer-col a[href^='tel']:hover {
     border-bottom-color: var(--color-gold-primary);
 }
 
@@ -1364,7 +1381,7 @@ iframe {
         align-items: center;
         margin-bottom: var(--spacing-lg);
     }
-    
+
     .footer-bottom {
         text-align: center;
     }
@@ -1375,7 +1392,8 @@ iframe {
     border-bottom: 1px solid rgba(212, 175, 55, 0.4);
     padding-bottom: 2px;
     transition: border-color 0.3s ease;
-    display: inline-block; /* Compulsory for border to show on inline elements */
+    display: inline-block;
+    /* Compulsory for border to show on inline elements */
 }
 
 .footer-col a:hover {
@@ -1402,7 +1420,8 @@ iframe {
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--color-gold-primary), transparent);
     opacity: 0.8;
-    background-color: transparent; /* Override old bg color */
+    background-color: transparent;
+    /* Override old bg color */
 }
 
 .category-card:hover h3::after {
@@ -1414,14 +1433,17 @@ iframe {
    Mobile Border Beam Animation (On Scroll)
    ========================================= */
 @media (max-width: 768px) {
-    .category-card.active-beam::before, 
-    .value-item.active-beam::before {
+
+    .category-card.active-beam::before,
+    .value-item.active-beam::before,
+    .showroom-card.active-beam::before {
         width: 100%;
     }
-    
+
     /* Optional: Provide visual feedback that it's active beyond just the line */
-    .category-card.active-beam, 
-    .value-item.active-beam {
+    .category-card.active-beam,
+    .value-item.active-beam,
+    .showroom-card.active-beam {
         border-color: var(--color-gold-primary);
     }
 }
@@ -1469,14 +1491,16 @@ iframe {
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-left: 10px; /* Separator from text links */
+    margin-left: 10px;
+    /* Separator from text links */
 }
 
 .nav-social-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-gold-primary) !important; /* Override white text */
+    color: var(--color-gold-primary) !important;
+    /* Override white text */
     width: 32px;
     height: 32px;
     border: 1px solid rgba(212, 175, 55, 0.5);
@@ -1517,22 +1541,26 @@ iframe {
    ========================================= */
 
 @media (max-width: 768px) {
+
     /* 1. Center 'The Rajshyn Story' (About Text) */
     .about-text {
         text-align: center;
-        padding-right: 0; /* Reset any desktop padding */
+        padding-right: 0;
+        /* Reset any desktop padding */
     }
 
     /* 2. Mobile Footer Updates */
     .main-footer .footer-col {
         text-align: center;
-        align-items: center; /* For flex items if any */
+        align-items: center;
+        /* For flex items if any */
     }
 
     /* Center the footer logo */
     .footer-logo {
         margin: 0 auto var(--spacing-sm);
-        display: block; /* Ensure margin:auto works */
+        display: block;
+        /* Ensure margin:auto works */
     }
 
     /* Center social icons */
@@ -1542,17 +1570,17 @@ iframe {
     }
 
     /* Reduce footer font size */
-    .footer-col p, 
-    .footer-col a, 
+    .footer-col p,
+    .footer-col a,
     .footer-col .address,
     .footer-bottom p {
-        font-size: 0.9rem !important; /* Force smaller size */
+        font-size: 0.9rem !important;
+        /* Force smaller size */
         line-height: 1.5;
     }
-    
+
     /* Center Footer Bottom */
     .footer-bottom {
         text-align: center;
     }
 }
-

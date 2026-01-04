@@ -112,7 +112,7 @@ function initBorderBeamAnimations() {
         });
     }, observerOptions);
 
-    const beamElements = document.querySelectorAll('.category-card, .value-item');
+    const beamElements = document.querySelectorAll('.category-card, .value-item, .showroom-card');
     beamElements.forEach(el => beamObserver.observe(el));
 }
 
