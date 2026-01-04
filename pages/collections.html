@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | Rajshyn Jewellers</title>
+    <!-- Open Graph for WhatsApp -->
+    <meta property="og:title" content="Our Collections | Rajshyn Jewellers">
+    <meta property="og:description"
+        content="Explore our exquisite range of fine 22k gold jewelry. From bridal sets to daily wear, find your masterpiece.">
+    <meta property="og:image" content="https://rajshyn.com/assets/images/logo.png">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="../assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="main-header scrolled">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo.png" alt="Rajshyn Jewellers Logo">
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">Our Heritage</a></li>
+                    <li><a href="collections.html" class="active">Collections</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container text-center animate-on-scroll">
+            <h1>Our Collections</h1>
+            <p>Explore our exquisite range of fine jewelry.</p>
+            <div class="gold-divider"></div>
+        </div>
+    </header>
+
+    <!-- Filters -->
+    <section class="collections-section">
+        <div class="container">
+
+
+            <!-- Merged Gallery Grid -->
+            <div class="section-header text-center animate-on-scroll" style="margin-top: 2rem;">
+                <h2>Our Masterpieces</h2>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Existing Collection -->
+                <div class="gallery-item animate-on-scroll">
+                    <img src="../assets/images/gallery/Earrings1.jpg" alt="Diamond Earrings">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="../assets/images/gallery/new_wedding_rings.jpg" alt="Gold Wedding Rings">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="../assets/images/gallery/Engagement ring2.jpg" alt="Engagement Ring">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="../assets/images/gallery/Engagement ring3.jpg" alt="Engagement Ring">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="../assets/images/gallery/Engagement ring4.jpg" alt="Engagement Ring">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="../assets/images/gallery/Engagement ring5.jpg" alt="Engagement Ring">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="../assets/images/gallery/Engagement ring6.jpg" alt="Engagement Ring">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="../assets/images/gallery/Necklace1.jpg" alt="Luxury Necklace">
+                </div>
+
+                <!-- New Arrivals (Bottom) -->
+                <div class="gallery-item hidden animate-on-scroll">
+                    <img src="../assets/images/gallery/collection_new_1.jpg" alt="Ruby Gold Ring">
+                </div>
+                <div class="gallery-item hidden animate-on-scroll">
+                    <img src="../assets/images/gallery/collection_new_2.jpg" alt="Gold Diamond Ring">
+                </div>
+                <div class="gallery-item hidden animate-on-scroll">
+                    <img src="../assets/images/gallery/collection_new_3.jpg" alt="Diamond Band Ring">
+                </div>
+
+                <!-- Hidden Items (Show after View More) -->
+                <div class="gallery-item hidden animate-on-scroll">
+                    <img src="../assets/images/gallery/Wedding ring1.jpg" alt="Wedding Ring">
+                </div>
+            </div>
+
+            <div class="text-center animate-on-scroll" style="margin-top: 2rem;">
+                <button id="view-more-btn" class="btn btn-primary">View More</button>
+            </div>
+
+            <script>
+                document.getElementById('view-more-btn').addEventListener('click', function () {
+                    const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+                    hiddenItems.forEach(item => {
+                        item.classList.remove('hidden');
+                    });
+                    this.style.display = 'none'; // Hide the button after clicking
+                });
+            </script>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script>
+        // Lightbox Functionality
+        const modal = document.getElementById("lightbox-modal");
+        const modalImg = document.getElementById("lightbox-img");
+        const closeBtn = document.getElementsByClassName("close-lightbox")[0];
+
+        // Get all gallery images
+        const galleryImages = document.querySelectorAll(".gallery-item img");
+
+        galleryImages.forEach(img => {
+            img.addEventListener("click", function () {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+                // Disable body scroll
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        // Close on X click
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // Close on background click
+        modal.onclick = function (e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
+
+    <!-- Reviews Widget -->
+    <section class="testimonials-section" style="padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header text-center animate-on-scroll">
+                <h2>Client Stories</h2>
+            </div>
+            <div style="margin-top: 2rem;">
+                <script type='text/javascript'
+                    src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
+                <iframe class='lc_reviews_widget'
+                    src='https://reputationhub.site/reputation/widgets/review_widget/Zj4jaZpwUNZ7t8IlJS5l?widgetId=695a8d0d364d509d102a9e4b'
+                    frameborder='0' scrolling='no' style='min-width: 100%; width: 100%; height: 600px;'></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Rajshyn Jewellers" class="footer-logo">
+                </a>
+                <p>Redefining luxury since 1977.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><span style="color: var(--color-gold-primary);">📍</span> The Place At 67 (Westlands) <span
+                        class="footer-sep">|</span> <a href="tel:0733732775"
+                        style="color: inherit; text-decoration: none;"><span
+                            style="color: var(--color-gold-primary);">☎</span> 0733 732 775</a></p>
+                <p><span style="color: var(--color-gold-primary);">📍</span> Lornho House (Standard St) <span
+                        class="footer-sep">|</span> <a href="tel:0786577109"
+                        style="color: inherit; text-decoration: none;"><span
+                            style="color: var(--color-gold-primary);">☎</span> 0786 577 109</a></p>
+                <p><span style="color: var(--color-gold-primary);">📍</span> Prestige Plaza (Ngong Rd) <span
+                        class="footer-sep">|</span> <a href="tel:0723591294"
+                        style="color: inherit; text-decoration: none;"><span
+                            style="color: var(--color-gold-primary);">☎</span> 0723 591 294</a></p>
+                <p>rajshyn@yahoo.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p style="color: var(--color-gold-light); font-size: 0.9rem; margin-bottom: 0.5rem;">💛 Our gold jewelry
+                prices start at Ksh 40,000 | 🚫 No Silver</p>
+            <p>&copy; 2026 Rajshyn Jewellers. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">Designed by <a
+                    href="https://essenceautomations.com/" target="_blank"
+                    style="color: inherit; text-decoration: underline;">Essence Automations</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+    <script src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="6683b75cdd585658c2bbf3a1">
+        </script>
+    <script src="../pages/collections.html"></script>
+</body>
+
+</html>
