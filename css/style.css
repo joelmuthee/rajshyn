@@ -1588,6 +1588,23 @@ iframe {
         /* Reset any desktop padding */
     }
 
+    /* About Page Mobile Layout */
+    .about-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-column {
+        order: -1;
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .about-text h2 {
+        font-size: 1.8rem;
+        /* Smaller font for mobile */
+    }
+
     /* 2. Mobile Footer Updates */
     .main-footer .footer-col {
         text-align: center;
@@ -1611,15 +1628,15 @@ iframe {
     /* Reduce footer font size */
     .footer-col p,
     .footer-col a,
-    .footer-col .address,
-     @ m e d i a   ( m a x - w i d t h :   7 6 8 p x )    {
-                     . s h o w r o o m - c a r d    {
-                                 p a d d i n g :    1 . 5 r e m    ! i m p o r t a n t ;
-                                 p a d d i n g - b o t t o m :    3 r e m    ! i m p o r t a n t ;
-                                 / *   E x t r a   b o t t o m   s p a c e   f o r   m a p   * /             
-        }
-
-             
+    .footer-col .address {
+        font-size: 0.9rem;
     }
+}
 
-         
+@media (max-width: 768px) {
+    .showroom-card {
+        padding: 1.5rem !important;
+        padding-bottom: 3rem !important;
+        /* Extra bottom space for map */
+    }
+}
