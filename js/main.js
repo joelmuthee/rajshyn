@@ -1,5 +1,5 @@
 /**
- * Rajshyn Jewellers - Main JavaScript
+ * Luxury Jewellers - Main JavaScript
  * Handles navigation, animations, and interactions.
  */
 
@@ -116,3 +116,61 @@ function initBorderBeamAnimations() {
     beamElements.forEach(el => beamObserver.observe(el));
 }
 
+
+/* =========================================
+   Review Slider Logic
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    initReviewSlider();
+});
+
+function initReviewSlider() {
+    const track = document.querySelector('.review-track');
+    if (!track) return;
+
+    const slides = document.querySelectorAll('.review-slide');
+    const dotsContainer = document.querySelector('.slider-dots');
+    let currentIndex = 0;
+    const intervalTime = 5000;
+    let slideInterval;
+
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function updateSlidePosition() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlidePosition();
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlidePosition();
+        resetInterval();
+    }
+
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    // Auto Play
+    slideInterval = setInterval(nextSlide, intervalTime);
+
+    // Pause on hover
+    track.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    track.addEventListener('mouseleave', () => resetInterval());
+}

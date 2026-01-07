@@ -1,5 +1,5 @@
 /* 
- * Rajshyn Jewellers - Luxury Design System 
+ * Luxury Jewellers - Luxury Design System 
  * Gold & Black Theme
  */
 
@@ -820,7 +820,7 @@ section {
     display: none;
 }
 
-/* Values Section ("The Rajshyn Promise") */
+/* Values Section ("Our Promise") */
 /* Renamed or targeted as .bg-cream previously, now custom class */
 section.bg-cream {
     background-color: var(--color-black-soft) !important;
@@ -1581,7 +1581,7 @@ iframe {
 
 @media (max-width: 768px) {
 
-    /* 1. Center 'The Rajshyn Story' (About Text) */
+    /* 1. Center 'Our Story' (About Text) */
     .about-text {
         text-align: center;
         padding-right: 0;
@@ -1639,4 +1639,109 @@ iframe {
         padding-bottom: 3rem !important;
         /* Extra bottom space for map */
     }
+}
+/* =========================================
+   Review Slider
+   ========================================= */
+.testimonials-section {
+    background-color: var(--color-black-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.review-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.review-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.review-slide {
+    min-width: 100%;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.review-stars {
+    color: var(--color-gold-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.review-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+    line-height: 1.4;
+}
+
+.review-author {
+    color: var(--color-gold-light);
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(212, 175, 55, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--color-gold-primary);
+}
+
+/* =========================================
+   WhatsApp Float Widget
+   ========================================= */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 15px rgba(37, 211, 102, 0.5);
+    color: white;
+}
+
+.whatsapp-icon {
+    width: 35px;
+    height: 35px;
+    fill: white;
 }
