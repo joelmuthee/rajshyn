@@ -292,24 +292,20 @@ section {
     align-items: center;
 }
 
-/* Duplicate rule removal/merge if needed, but for now just updating the first instance and the duplicate if it exists */
-/* I see duplicate .logo img rules in lines 398-403 in the previous view_file output. I should fix that too to avoid confusion. */
-/* Wait, looking at the previous view_file output (Step 14):
-Lines 262-267: .logo img { height: 80px... }
-Lines 269-272: .main-header.scrolled .logo img { height: 60px... }
-Lines 398-403: .logo img { height: 80px... }
-Lines 405-408: .main-header.scrolled .logo img { height: 60px... }
-And footer logo at 584: .footer-logo { max-width: 120px... }
-I should update ALL of them or clean up the duplicates.
-Cleaning up duplicates is better. I will remove the second block and update the first block.
-*/
 
-/* First block update (Header Logo) */
+/* Header Logo */
 .logo img {
     height: 140px;
     /* Increased from 80px */
     width: auto;
-    transition: height var(--transition-fast);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy cool transition */
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.9));
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px var(--color-gold-primary));
 }
 
 .main-header.scrolled .logo img {
@@ -627,7 +623,13 @@ Cleaning up duplicates is better. I will remove the second block and update the 
 
 .footer-logo {
     max-width: 120px;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px var(--color-gold-primary));
 }
 
 .footer-col h4 {
