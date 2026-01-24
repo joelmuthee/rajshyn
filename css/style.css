@@ -1779,3 +1779,5 @@ iframe {
 .dot.active {
     background-color: var(--color-gold-primary);
 }
+/* Mobile Logo Fix */
+@media (max-width: 768px) { .logo img { height: 80px; } .main-header.scrolled .logo img { height: 60px; } }
