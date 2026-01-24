@@ -1853,6 +1853,6 @@ iframe {
 
 /* Elfsight Widget Spacing Fix - Force acceptable height */
 .elfsight-app-6683b75cdd585658c2bbf3a1 {
-    min-height: 350px !important;
+    min-height: 650px !important;
     margin-bottom: 0 !important;
 }
