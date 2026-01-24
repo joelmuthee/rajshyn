@@ -1781,3 +1781,6 @@ iframe {
 }
 /* Mobile Logo Fix */
 @media (max-width: 768px) { .logo img { height: 80px; } .main-header.scrolled .logo img { height: 60px; } }
+
+/* Mobile Footer Alignment */
+@media (max-width: 768px) { .footer-col { text-align: center; } .footer-social { justify-content: center; } }
