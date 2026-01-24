@@ -1779,11 +1779,59 @@ iframe {
 .dot.active {
     background-color: var(--color-gold-primary);
 }
+
 /* Mobile Logo Fix */
-@media (max-width: 768px) { .logo img { height: 80px; } .main-header.scrolled .logo img { height: 60px; } }
+@media (max-width: 768px) {
+    .logo img {
+        height: 80px;
+    }
+
+    .main-header.scrolled .logo img {
+        height: 60px;
+    }
+}
 
 /* Mobile Footer Alignment */
-@media (max-width: 768px) { .footer-col { text-align: center; } .footer-social { justify-content: center; } }
+@media (max-width: 768px) {
+    .footer-col {
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}
 
 /* Stronger Mobile Footer Alignment */
-@media (max-width: 768px) { .footer-col { text-align: center !important; } .footer-col p { text-align: center !important; } .footer-social { justify-content: center !important; } }
+/* Stronger Mobile Footer Alignment */
+@media (max-width: 768px) {
+    .main-footer .footer-col {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .footer-col p {
+        width: 100% !important;
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 5px !important;
+        margin: 0 auto 10px auto !important;
+        /* Center block with margin */
+    }
+
+    .footer-social {
+        justify-content: center !important;
+        width: 100% !important;
+        display: flex !important;
+    }
+
+    /* Ensure address links behave */
+    .footer-col a {
+        display: inline-block;
+    }
+}
