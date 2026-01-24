@@ -1565,6 +1565,7 @@ iframe {
     margin: 0;
     text-decoration: none;
     line-height: 0;
+    flex-shrink: 0;
 }
 
 .footer-social a:hover {
@@ -1578,6 +1579,16 @@ iframe {
     width: 18px;
     height: 18px;
     fill: currentColor;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Specific Mobile Adjustments for Social Icons */
+@media (max-width: 768px) {
+    .footer-social a:hover {
+        transform: none;
+        /* Disable hover movement on touch */
+    }
 }
 
 
