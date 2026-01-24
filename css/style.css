@@ -260,15 +260,61 @@ section {
 }
 
 .logo img {
-    height: 80px;
-    /* Increased from 50px */
+    height: 140px;
+    /* Increased from 80px */
     width: auto;
     transition: height var(--transition-fast);
 }
 
 .main-header.scrolled .logo img {
-    height: 60px;
-    /* Slightly smaller on scroll but still larger than before */
+    height: 100px;
+    /* Slightly smaller on scroll */
+}
+
+/* ... existing nav styles ... */
+
+/* =========================================
+   Categories Section (New Premium Look)
+   ========================================= */
+
+/* ... (lines 295-385 skipped) ... */
+
+
+.main-header.scrolled {
+    background-color: var(--color-black-rich);
+    box-shadow: var(--shadow-subtle);
+    padding: var(--spacing-xs) 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Duplicate rule removal/merge if needed, but for now just updating the first instance and the duplicate if it exists */
+/* I see duplicate .logo img rules in lines 398-403 in the previous view_file output. I should fix that too to avoid confusion. */
+/* Wait, looking at the previous view_file output (Step 14):
+Lines 262-267: .logo img { height: 80px... }
+Lines 269-272: .main-header.scrolled .logo img { height: 60px... }
+Lines 398-403: .logo img { height: 80px... }
+Lines 405-408: .main-header.scrolled .logo img { height: 60px... }
+And footer logo at 584: .footer-logo { max-width: 120px... }
+I should update ALL of them or clean up the duplicates.
+Cleaning up duplicates is better. I will remove the second block and update the first block.
+*/
+
+/* First block update (Header Logo) */
+.logo img {
+    height: 140px;
+    /* Increased from 80px */
+    width: auto;
+    transition: height var(--transition-fast);
+}
+
+.main-header.scrolled .logo img {
+    height: 100px;
+    /* Slightly smaller on scroll */
 }
 
 .nav-menu ul {
@@ -395,16 +441,14 @@ section {
     align-items: center;
 }
 
-.logo img {
-    height: 80px;
-    /* Increased from 50px */
-    width: auto;
-    transition: height var(--transition-fast);
-}
+/* Duplicate rules removed */
 
-.main-header.scrolled .logo img {
-    height: 60px;
-    /* Slightly smaller on scroll */
+/* ... */
+
+.footer-logo {
+    max-width: 180px;
+    /* Increased from 120px */
+    margin-bottom: var(--spacing-sm);
 }
 
 .nav-menu ul {
