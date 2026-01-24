@@ -662,6 +662,25 @@ section {
     color: #666;
 }
 
+.footer-designer {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+.footer-designer a {
+    color: var(--color-gold-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-designer a:hover {
+    color: var(--color-white);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    text-decoration: none;
+}
+
 /* Mobile Footer Formatting */
 @media (max-width: 480px) {
     .footer-col p {
@@ -1450,6 +1469,14 @@ iframe {
 .phone-link:hover,
 .footer-col a[href^='tel']:hover {
     border-bottom-color: var(--color-gold-primary);
+}
+
+.working-hours {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: var(--color-gray-light);
+    position: relative;
+    z-index: 1;
 }
 
 
