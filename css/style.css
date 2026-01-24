@@ -1784,3 +1784,6 @@ iframe {
 
 /* Mobile Footer Alignment */
 @media (max-width: 768px) { .footer-col { text-align: center; } .footer-social { justify-content: center; } }
+
+/* Stronger Mobile Footer Alignment */
+@media (max-width: 768px) { .footer-col { text-align: center !important; } .footer-col p { text-align: center !important; } .footer-social { justify-content: center !important; } }
