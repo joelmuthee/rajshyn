@@ -665,6 +665,8 @@ Cleaning up duplicates is better. I will remove the second block and update the 
     .footer-col p {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        /* Prevent full-width stretch */
         gap: 4px;
         margin-bottom: var(--spacing-sm);
         line-height: 1.4;
