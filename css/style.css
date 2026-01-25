@@ -1756,7 +1756,7 @@ iframe {
 
     /* Center the footer logo */
     .footer-logo {
-        margin: 0 auto var(--spacing-sm);
+        margin: 0 auto 3rem;
         display: block;
         /* Ensure margin:auto works */
     }
