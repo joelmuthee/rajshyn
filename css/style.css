@@ -1756,9 +1756,14 @@ iframe {
 
     /* Center the footer logo */
     .footer-logo {
-        margin: 0 auto 3rem;
+        margin: 0 auto;
         display: block;
-        /* Ensure margin:auto works */
+    }
+
+    /* FORCE SPACE above slogan */
+    .footer-col a+p {
+        margin-top: 3rem !important;
+        display: block;
     }
 
     /* Center social icons */
