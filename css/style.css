@@ -1082,27 +1082,18 @@ section.bg-cream p {
 
     .nav-toggle {
         display: flex;
-        z-index: 1001;
     }
 
     .nav-menu {
         position: fixed;
-        top: 0;
+        top: 70px;
         left: 0;
         width: 100%;
-        height: 100vh;
-        background: rgba(5, 5, 5, 0.98);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transform: translateY(-100%);
-        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        border-bottom: none;
-        z-index: 998;
+        background-color: var(--color-black-rich);
+        padding: var(--spacing-md);
+        transform: translateY(-150%);
+        transition: transform var(--transition-fast);
+        border-bottom: 1px solid var(--color-gold-dark);
     }
 
     .nav-menu.active {
@@ -1112,57 +1103,13 @@ section.bg-cream p {
     .nav-menu ul {
         flex-direction: column;
         text-align: center;
-        gap: 2.5rem;
-        width: 100%;
+        gap: var(--spacing-sm);
     }
 
-    /* Premium Typography & Animation */
-    .nav-menu a {
-        font-family: var(--font-heading);
-        font-size: 2.5rem;
-        color: var(--color-gold-light);
-        text-transform: none;
-        font-style: italic;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: font-size 0.3s, color 0.3s;
-        display: block;
-    }
-
-    .nav-menu.active a {
-        opacity: 1;
-        transform: translateY(0);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    /* Staggered Delays */
-    .nav-menu.active li:nth-child(1) a {
-        transition-delay: 0.1s;
-    }
-
-    .nav-menu.active li:nth-child(2) a {
-        transition-delay: 0.2s;
-    }
-
-    .nav-menu.active li:nth-child(3) a {
-        transition-delay: 0.3s;
-    }
-
-    .nav-menu.active li:nth-child(4) a {
-        transition-delay: 0.4s;
-    }
-
-    .nav-menu.active li:nth-child(5) a {
-        transition-delay: 0.5s;
-    }
-
-    .nav-menu a:hover {
-        color: var(--color-white);
-        transform: scale(1.05);
-    }
-
-    .nav-menu a::after {
-        display: none;
+    .nav-menu ul {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
     }
 }
 
@@ -1172,6 +1119,26 @@ section.bg-cream p {
 .showroom-section {
     background-color: var(--color-black-rich);
     padding-bottom: var(--spacing-xl);
+}
+
+/* ... skipped lines ... */
+
+/* =========================================
+   Social Media Icons Fix
+   ========================================= */
+.footer-social a,
+.nav-social-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.footer-social svg,
+.nav-social-link svg {
+    margin: 0 !important;
+    display: block !important;
+    transform: none !important;
+    /* Prevent any shift */
 }
 
 .showroom-subtitle {
