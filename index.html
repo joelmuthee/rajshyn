@@ -30,6 +30,122 @@
     <link rel="stylesheet" href="css/style.css?v=1.8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- AEO: JSON-LD Schema for AI & Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://rajshynjewellers.com/#organization",
+          "name": "Rajshyn Jewellers",
+          "url": "https://rajshynjewellers.com/",
+          "logo": "https://rajshynjewellers.com/assets/images/logo.png",
+          "description": "Discover the finest collection of handcrafted luxury 18ct and 9ct gold jewelry. Visit our showrooms in Nairobi.",
+          "sameAs": [
+            "https://www.facebook.com/rajshyn/",
+            "https://www.instagram.com/rajshyn_jewellers/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+254-733-732-775",
+            "contactType": "customer service"
+          }
+        },
+        {
+          "@type": "JewelryStore",
+          "@id": "https://rajshynjewellers.com/#westlands",
+          "parentOrganization": { "@id": "https://rajshynjewellers.com/#organization" },
+          "name": "Rajshyn Jewellers - Westlands",
+          "telephone": "+254733732775",
+          "image": "https://rajshynjewellers.com/assets/images/social-share.png",
+          "url": "https://rajshynjewellers.com/",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "The Place At 67, General Mathenge Drive, Westlands",
+            "addressLocality": "Nairobi",
+            "addressRegion": "Nairobi",
+            "postalCode": "00100",
+            "addressCountry": "KE"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "10:00",
+              "closes": "17:30"
+            }
+          ]
+        },
+        {
+          "@type": "JewelryStore",
+          "@id": "https://rajshynjewellers.com/#cbd",
+          "parentOrganization": { "@id": "https://rajshynjewellers.com/#organization" },
+          "name": "Rajshyn Jewellers - CBD",
+          "telephone": "+254786577109",
+          "image": "https://rajshynjewellers.com/assets/images/social-share.png",
+          "url": "https://rajshynjewellers.com/",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Lonrho House, Standard St",
+            "addressLocality": "Nairobi",
+            "addressRegion": "Nairobi",
+            "postalCode": "00100",
+            "addressCountry": "KE"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:30",
+              "closes": "17:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "09:30",
+              "closes": "14:00"
+            }
+          ]
+        },
+        {
+          "@type": "JewelryStore",
+          "@id": "https://rajshynjewellers.com/#prestige",
+          "parentOrganization": { "@id": "https://rajshynjewellers.com/#organization" },
+          "name": "Rajshyn Jewellers - Prestige Plaza",
+          "telephone": "+254723591294",
+          "image": "https://rajshynjewellers.com/assets/images/social-share.png",
+          "url": "https://rajshynjewellers.com/",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Prestige Plaza, Ngong Road",
+            "addressLocality": "Nairobi",
+            "addressRegion": "Nairobi",
+            "postalCode": "00100",
+            "addressCountry": "KE"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "10:30",
+              "closes": "18:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Sunday",
+              "opens": "10:30",
+              "closes": "14:00"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
