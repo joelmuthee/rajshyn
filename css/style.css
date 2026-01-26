@@ -174,7 +174,6 @@ img {
 }
 
 /* Button Styles */
-/* Button Styles */
 .btn {
     display: inline-block;
     padding: 14px 36px;
@@ -187,7 +186,7 @@ img {
     background: transparent;
     color: var(--color-gold-primary);
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -198,36 +197,40 @@ img {
     position: absolute;
     top: 0;
     left: -100%;
-    width: 100%;
+    width: 120%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(120deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     z-index: -1;
+    transform: skewX(-20deg);
 }
 
 .btn:hover {
     color: var(--color-black-rich);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
     background: var(--color-gold-primary);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    letter-spacing: 3px;
 }
 
 .btn:hover::before {
     left: 100%;
+    transition: 0.7s;
 }
 
 .btn-primary {
     background: linear-gradient(135deg, var(--color-gold-primary) 0%, var(--color-gold-dark) 100%);
     color: var(--color-black-rich);
     border: none;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-primary) 100%);
     color: var(--color-black-rich);
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    transform: translateY(-3px);
 }
-
 /* Section Padding */
 section {
     padding: var(--spacing-lg) 0;
