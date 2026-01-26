@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Luxury Jewellers - Luxury Design System 
  * Gold & Black Theme
  */
@@ -1919,4 +1919,25 @@ iframe {
 .lc_reviews_widget {
     min-height: 650px !important;
     margin-bottom: 0 !important;
+}
+
+
+/* Our Heritage Image Glow */
+.heritage-image-container img {
+    transition: all 0.5s ease;
+}
+
+/* Desktop Hover */
+@media (min-width: 901px) {
+    .heritage-image-container:hover img {
+        filter: drop-shadow(0 0 25px var(--color-gold-primary));
+        transform: scale(1.02);
+    }
+}
+
+/* Mobile Scroll */
+@media (max-width: 900px) {
+    .heritage-image-container.visible img {
+        filter: drop-shadow(0 0 20px var(--color-gold-primary));
+    }
 }
