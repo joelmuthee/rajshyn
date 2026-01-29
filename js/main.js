@@ -187,8 +187,8 @@ function initReviewSystem() {
 
     // 1. Capture "Pristine" Templates on Page Load
     // We save the original HTML of the forms before anyone touches them.
-    const fourStarTemplate = document.getElementById('four-star-iframe')?.innerHTML;
-    const negativeTemplate = document.getElementById('negative-review-iframe')?.innerHTML;
+    const fourStarTemplate = document.getElementById('review-container-4star')?.innerHTML;
+    const negativeTemplate = document.getElementById('review-container-negative')?.innerHTML;
     const stars = document.querySelectorAll('input[name="rating"]');
     const reviewCta = document.getElementById('review-cta');
 
@@ -228,8 +228,8 @@ function initReviewSystem() {
 
             // Hide all forms initially
             if (reviewCta) reviewCta.classList.add('hidden');
-            document.getElementById('negative-review-iframe')?.classList.add('hidden');
-            document.getElementById('four-star-iframe')?.classList.add('hidden');
+            document.getElementById('review-container-negative')?.classList.add('hidden');
+            document.getElementById('review-container-4star')?.classList.add('hidden');
 
             setTimeout(() => {
                 if (rating === 5) {
@@ -240,10 +240,10 @@ function initReviewSystem() {
                     }
                 } else if (rating === 4) {
                     // 4 Stars: Force Reload from Template
-                    loadTemplate('four-star-iframe', fourStarTemplate);
+                    loadTemplate('review-container-4star', fourStarTemplate);
                 } else {
                     // 1-3 Stars: Force Reload from Template
-                    loadTemplate('negative-review-iframe', negativeTemplate);
+                    loadTemplate('review-container-negative', negativeTemplate);
                 }
 
                 // Scroll stars to center (UX Polish)
@@ -266,8 +266,8 @@ function initReviewSystem() {
 
             // Hide main container wrapper if needed, or just specific containers
             if (reviewCta) reviewCta.classList.add('hidden');
-            document.getElementById('negative-review-iframe')?.classList.add('hidden');
-            document.getElementById('four-star-iframe')?.classList.add('hidden');
+            document.getElementById('review-container-negative')?.classList.add('hidden');
+            document.getElementById('review-container-4star')?.classList.add('hidden');
 
             // Scroll back to center of stars
             const starContainer = document.querySelector('.star-rating');
