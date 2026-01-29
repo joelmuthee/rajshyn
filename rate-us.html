@@ -176,6 +176,43 @@
                 transform: scale(1);
             }
         }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .glass-effect {
+                padding: 2rem 1rem;
+                /* Reduce padding on mobile */
+            }
+
+            .feedback-system h2 {
+                font-size: 2rem !important;
+                /* Smaller heading */
+            }
+
+            .feedback-system .subtitle {
+                font-size: 1rem;
+                /* Adjust subtitle size */
+            }
+
+            /* Ensure emoji legend stays on one line if possible, or breaks cleanly */
+            .feedback-system p span {
+                white-space: nowrap;
+                font-size: 0.85rem;
+                /* Slightly smaller to fit */
+            }
+
+            /* Optimize Branch Buttons for Mobile */
+            .branch-selection .btn {
+                padding: 0.8rem 0.5rem !important;
+                /* Minimal side padding */
+                font-size: 0.9rem !important;
+                /* Slightly smaller text */
+                white-space: nowrap;
+                /* Force one line */
+                width: 100%;
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 
