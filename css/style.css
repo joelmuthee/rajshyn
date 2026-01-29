@@ -1984,6 +1984,8 @@ iframe {
     /* Allows hover selection from right to left */
     gap: 15px;
     margin-bottom: 0.5rem;
+    scroll-margin-top: 250px;
+    /* Ensures stars aren't hidden behind the header */
 }
 
 .star-rating input {

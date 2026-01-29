@@ -71,6 +71,10 @@
             flex-direction: row-reverse;
             gap: 0.5rem;
             margin-bottom: 1.5rem;
+            position: relative;
+            /* Ensure it stays above other elements */
+            z-index: 50;
+            /* Prioritize clicks */
         }
 
         .star-rating input {
@@ -78,6 +82,8 @@
         }
 
         .star-rating label {
+            display: block;
+            /* Ensure width/height are respected */
             cursor: pointer;
             width: 40px;
             height: 40px;
@@ -97,11 +103,8 @@
             transform: scale(1.1);
         }
 
-        /* Form Containers */
-        .conditional-content {
-            margin-top: 2rem;
-            position: relative;
-        }
+        /* Form Containers - Overriden by style.css for Full Screen */
+        /* Removed .conditional-content relative positioning to allow style.css fixed positioning to work */
 
         .conditional-content h3 {
             color: var(--color-gold-primary);
@@ -114,22 +117,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Iframe Containers */
-        #review-container-negative,
-        #review-container-4star {
-            min-height: 400px;
-            height: auto;
-            width: 100%;
-            overflow: visible;
-            border-radius: 8px;
-            background: transparent !important;
-            position: relative;
-            z-index: 10;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
+        /* Iframe Containers - styles delegated to style.css mostly */
         #review-container-negative iframe,
         #review-container-4star iframe {
             width: 100%;
@@ -231,47 +219,55 @@
                     <span style="opacity: 0.8; font-weight: 300;">(1 Star = &#128542;, 5 Stars = &#129392;)</span>
                 </p>
 
-                <!-- 1-3 Star Negative Review Form Container -->
-                <div id="review-container-negative" class="conditional-content hidden zoom-in">
-                    <!-- Close Button -->
-                    <button class="close-form-btn" title="Close Form"
-                        style="background: var(--color-gold-primary); color: var(--color-black-rich); z-index: 100; position: absolute; top: -15px; right: -15px; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">&times;</button>
-
-                    <iframe src="https://link.essenceautomations.com/widget/form/rHOsp7i5ISEtHvDW62gA"
-                        style="width:100%;height:100%;border:none;background:transparent;display:block;"
-                        id="inline-form-negative" title="Negative Reviews Form">
-                    </iframe>
-                </div>
-
-                <!-- 4 Star Reviews Form Container -->
-                <div id="review-container-4star" class="conditional-content hidden zoom-in">
-                    <!-- Close Button -->
-                    <button class="close-form-btn" title="Close Form"
-                        style="background: var(--color-gold-primary); color: var(--color-black-rich); z-index: 100; position: absolute; top: -15px; right: -15px; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">&times;</button>
-
-                    <iframe src="https://link.essenceautomations.com/widget/form/FBtFbN8kOETwoe3zgMjp"
-                        style="width:100%;height:100%;border:none;background:transparent;display:block;"
-                        id="inline-form-four-star" title="4-Star Reviews Form">
-                    </iframe>
-                </div>
-
-                <!-- 5 Star Success Message -->
-                <div id="review-cta" class="conditional-content hidden zoom-in">
-                    <h3>Thank you for your support!</h3>
-                    <p>We're thrilled you had a great experience. Please select the branch you visited to leave a review
-                        on Google:</p>
-                    <div class="branch-selection"
-                        style="display: flex; flex-direction: column; gap: 15px; margin-top: 1.5rem; width: 100%; align-items: center;">
-                        <a href="https://g.page/r/CU_ttTEsCN1sEBI/review" target="_blank" class="btn">Westlands (The
-                            Place At 67)</a>
-                        <a href="https://g.page/r/CTKVq5w2mlk2EBE/review" target="_blank" class="btn">CBD (Lonrho
-                            House)</a>
-                        <a href="https://g.page/r/CUZ4j41tz5wcEBE/review" target="_blank" class="btn">Prestige Plaza
-                            (Ngong Rd)</a>
-                    </div>
-                </div>
-            </div>
         </section>
+    </main>
+
+    <!-- 1-3 Star Negative Review Form Container -->
+    <div id="review-container-negative" class="conditional-content hidden zoom-in">
+        <!-- Close Button -->
+        <button class="close-form-btn" title="Close Form"
+            style="background: var(--color-gold-primary); color: var(--color-black-rich); z-index: 100; position: absolute; top: -15px; right: -15px; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">&times;</button>
+
+        <iframe src="https://link.essenceautomations.com/widget/form/rHOsp7i5ISEtHvDW62gA"
+            style="width:100%;height:100%;border:none;background:transparent;display:block;" id="inline-form-negative"
+            title="Negative Reviews Form">
+        </iframe>
+    </div>
+
+    <!-- 4 Star Reviews Form Container -->
+    <div id="review-container-4star" class="conditional-content hidden zoom-in">
+        <!-- Close Button -->
+        <button class="close-form-btn" title="Close Form"
+            style="background: var(--color-gold-primary); color: var(--color-black-rich); z-index: 100; position: absolute; top: -15px; right: -15px; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">&times;</button>
+
+        <iframe src="https://link.essenceautomations.com/widget/form/FBtFbN8kOETwoe3zgMjp"
+            style="width:100%;height:100%;border:none;background:transparent;display:block;" id="inline-form-four-star"
+            title="4-Star Reviews Form">
+        </iframe>
+    </div>
+
+    <!-- 5 Star Success Message -->
+    <div id="review-cta" class="conditional-content hidden zoom-in">
+        <!-- Close Button -->
+        <button class="close-form-btn" title="Close Form"
+            style="background: var(--color-gold-primary); color: var(--color-black-rich); z-index: 100; position: absolute; top: 30px; right: 30px; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">&times;</button>
+
+        <h3>Thank you for your support!</h3>
+        <p style="max-width: 600px; line-height: 1.6;">We're thrilled you had a great experience. Could you please spare
+            a
+            moment to select the branch you visited and share your experience on our <span
+                style="color: #D4AF37; font-weight: 700; text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);">Google Business
+                Profile</span>? Your detailed feedback helps us grow and serve you better.</p>
+        <div class="branch-selection"
+            style="display: flex; flex-direction: column; gap: 15px; margin-top: 1.5rem; width: 100%; align-items: center;">
+            <a href="https://g.page/r/CU_ttTEsCN1sEBI/review" target="_blank" class="btn">Westlands (The
+                Place At 67)</a>
+            <a href="https://g.page/r/CTKVq5w2mlk2EBE/review" target="_blank" class="btn">CBD (Lonrho
+                House)</a>
+            <a href="https://g.page/r/CUZ4j41tz5wcEBE/review" target="_blank" class="btn">Prestige Plaza
+                (Ngong Rd)</a>
+        </div>
+    </div>
     </main>
 
     <!-- Footer -->

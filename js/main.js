@@ -203,7 +203,7 @@ function initReviewSystem() {
 
         // Show Container
         container.classList.remove('hidden');
-        container.style.display = 'block';
+        container.style.display = 'flex';
 
         // Re-activate Scripts (innerHTML scripts don't run automatically by default)
         const scripts = container.getElementsByTagName('script');
@@ -223,7 +223,7 @@ function initReviewSystem() {
 
     // 3. Main Star Click Listener
     stars.forEach(star => {
-        star.addEventListener('click', (e) => {
+        star.addEventListener('change', (e) => { // Changed to 'change' for better reliability with labels
             const rating = parseInt(e.target.value);
 
             // Hide all forms initially
