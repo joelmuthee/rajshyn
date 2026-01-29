@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initLazyLoading();
     initBorderBeamAnimations();
+    initReviewSystem();
 });
 
 /* Navigation Logic */
@@ -174,4 +175,105 @@ function initReviewSlider() {
     // Pause on hover
     track.addEventListener('mouseenter', () => clearInterval(slideInterval));
     track.addEventListener('mouseleave', () => resetInterval());
+}
+
+/* =========================================
+   Review & Feedback System Logic (With Reset Fix)
+   ========================================= */
+function initReviewSystem() {
+    const feedbackSystem = document.getElementById('feedback-system');
+    // Only run if the review system is present on the page
+    if (!feedbackSystem) return;
+
+    // 1. Capture "Pristine" Templates on Page Load
+    // We save the original HTML of the forms before anyone touches them.
+    const fourStarTemplate = document.getElementById('four-star-iframe')?.innerHTML;
+    const negativeTemplate = document.getElementById('negative-review-iframe')?.innerHTML;
+    const stars = document.querySelectorAll('input[name="rating"]');
+    const reviewCta = document.getElementById('review-cta');
+
+    // 2. Helper Function: The "Nuclear Option"
+    // This completely destroys the old iframe and creates a new one from the template.
+    function loadTemplate(containerId, templateContent) {
+        const container = document.getElementById(containerId);
+        if (!container || !templateContent) return;
+
+        // Reset Content to original template
+        container.innerHTML = templateContent;
+
+        // Show Container
+        container.classList.remove('hidden');
+        container.style.display = 'block';
+
+        // Re-activate Scripts (innerHTML scripts don't run automatically by default)
+        const scripts = container.getElementsByTagName('script');
+        Array.from(scripts).forEach(oldScript => {
+            const newScript = document.createElement('script');
+            // Copy attributes like src, id, etc.
+            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+            // Copy inline code
+            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+            // Replace old script with executable new script
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+
+        // Scroll into view comfortably
+        // container.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Removed automatic scroll to form to keep focus on stars/message
+    }
+
+    // 3. Main Star Click Listener
+    stars.forEach(star => {
+        star.addEventListener('click', (e) => {
+            const rating = parseInt(e.target.value);
+
+            // Hide all forms initially
+            if (reviewCta) reviewCta.classList.add('hidden');
+            document.getElementById('negative-review-iframe')?.classList.add('hidden');
+            document.getElementById('four-star-iframe')?.classList.add('hidden');
+
+            setTimeout(() => {
+                if (rating === 5) {
+                    // 5 Stars: Show Google Link (No reload needed, it's just text)
+                    if (reviewCta) {
+                        reviewCta.classList.remove('hidden');
+                        // reviewCta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } else if (rating === 4) {
+                    // 4 Stars: Force Reload from Template
+                    loadTemplate('four-star-iframe', fourStarTemplate);
+                } else {
+                    // 1-3 Stars: Force Reload from Template
+                    loadTemplate('negative-review-iframe', negativeTemplate);
+                }
+
+                // Scroll stars to center (UX Polish)
+                const starContainer = e.target.closest('.star-rating');
+                if (starContainer) {
+                    // Slight delay to ensure layout is settled
+                    setTimeout(() => starContainer.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+                }
+
+            }, 50);
+        });
+    });
+
+    // 4. Global Close Button Logic
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.close-form-btn');
+        if (btn) {
+            // Uncheck all stars
+            document.querySelectorAll('input[name="rating"]').forEach(input => input.checked = false);
+
+            // Hide main container wrapper if needed, or just specific containers
+            if (reviewCta) reviewCta.classList.add('hidden');
+            document.getElementById('negative-review-iframe')?.classList.add('hidden');
+            document.getElementById('four-star-iframe')?.classList.add('hidden');
+
+            // Scroll back to center of stars
+            const starContainer = document.querySelector('.star-rating');
+            if (starContainer) {
+                starContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    });
 }
