@@ -746,6 +746,15 @@ section {
     transform: translateY(0);
 }
 
+/* Ensure content is visible on mobile even if JS fails or intersection observer lags */
+@media (max-width: 768px) {
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
 /* Stagger Delays */
 .delay-100 {
     transition-delay: 0.1s;
