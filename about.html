@@ -24,10 +24,31 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://rajshynjewellers.com/about.html">
 
-    <link rel="icon" href="assets/images/favicon.png?v=11.0" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=11.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="assets/images/favicon.png?v=12.0" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=12.0">
+    <!-- Critical Animation CSS -->
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards !important;
+            opacity: 0 !important;
+            transform: translateY(30px) !important;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s !important;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s !important;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -260,7 +281,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=11.0"></script>
+    <script src="js/main.js?v=12.0"></script>
 
 
 
