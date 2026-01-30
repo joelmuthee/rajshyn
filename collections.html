@@ -24,19 +24,17 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://rajshynjewellers.com/collections.html">
 
-    <link rel="icon" href="assets/images/favicon.png?v=18.0" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=18.0">
+    <link rel="icon" href="assets/images/favicon.png?v=19.0" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=19.0">
     <!-- Critical Animation CSS -->
     <!-- Proven Animation CSS + Layering Fix -->
+    <!-- Proven Animation CSS: Mobile = Fade Only, Desktop = Fade Up -->
     <style>
         .fade-in-up {
-            animation: heroReveal 0.8s ease forwards;
             opacity: 0;
-            transform: translateY(20px);
+            animation: heroRevealMobile 0.8s ease forwards;
             position: relative;
             z-index: 100 !important;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
         }
 
         .delay-200 {
@@ -47,10 +45,23 @@
             animation-delay: 0.3s;
         }
 
-        @keyframes heroReveal {
+        @keyframes heroRevealMobile {
             to {
                 opacity: 1;
-                transform: translateY(0);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .fade-in-up {
+                transform: translateY(20px);
+                animation-name: heroReveal;
+            }
+
+            @keyframes heroReveal {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
         }
     </style>
@@ -370,7 +381,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=18.0"></script>
+    <script src="js/main.js?v=19.0"></script>
 
 
 
