@@ -735,6 +735,25 @@ section {
     transform: translateY(0);
 }
 
+/* GLOBAL MOBILE FIX: Disable scroll animations on mobile to guarantee visibility */
+@media (max-width: 768px) {
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        visibility: visible !important;
+    }
+
+    /* Ensure page headers have height and centering */
+    .page-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 40vh;
+    }
+}
+
 
 /* Wait Class for JS Loader */
 .hero-wait {
