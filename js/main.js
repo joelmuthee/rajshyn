@@ -50,12 +50,11 @@ function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
     // Standard Observer for all devices
-    // threshold: 0.1 means 10% must be visible. 
-    // On mobile, sometimes big elements don't get 10% visible easily if they are huge.
-    // We use 0.01 (1%) to trigger almost immediately upon entry, but definitely ON entry.
+    // Increased -100px margin ensures user has definitely scrolled TO the element
+    // preventing it from triggering effectively "off screen" or at the very edge.
     const observerOptions = {
-        threshold: 0.01,
-        rootMargin: '0px 0px -20px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
