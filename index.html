@@ -26,8 +26,8 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://rajshynjewellers.com/">
 
-    <link rel="icon" href="assets/images/favicon.png?v=6.0" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=6.0">
+    <link rel="icon" href="assets/images/favicon.png?v=7.0" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=7.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -161,18 +161,14 @@
             }
         }
 
-        /* Stagger delays - Increased for mobile visibility */
-        .delay-200 {
-            animation-delay: 0.5s;
-        }
-
-        .delay-400 {
-            animation-delay: 0.8s;
-        }
-
+        /* Stagger delays handled by JS now */
         .fade-in-up {
-            animation-delay: 0.2s;
-            /* Base delay for h1 */
+            /* Animation definition remains the same */
+        }
+
+        .hero-wait {
+            opacity: 0;
+            /* Start hidden until JS activates it */
         }
     </style>
 </head>
@@ -231,12 +227,28 @@
             <div class="overlay"></div>
         </div>
         <div class="container hero-content">
-            <h1 class="fade-in-up">Exquisite Jewelry for Every Occasion</h1>
-            <p class="fade-in-up delay-200">Where timeless elegance meets modern craftsmanship.</p>
-            <a href="collections.html" class="btn btn-primary fade-in-up delay-400">Explore
+            <!-- Used hero-wait to ensure animation only starts AFTER full page load -->
+            <h1 class="hero-wait">Exquisite Jewelry for Every Occasion</h1>
+            <p class="hero-wait">Where timeless elegance meets modern craftsmanship.</p>
+            <a href="collections.html" class="btn btn-primary hero-wait">Explore
                 Collections</a>
         </div>
     </section>
+
+    <script>
+        // Force animations to start ONLY after the heavy page is fully loaded
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                const elements = document.querySelectorAll('.hero-wait');
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.remove('hero-wait');
+                        el.classList.add('fade-in-up');
+                    }, index * 300); // 300ms Stagger
+                });
+            }, 100); // Safety buffer after load
+        });
+    </script>
 
     <!-- Jewelry Categories -->
     <section class="categories-section">
@@ -565,7 +577,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=6.0"></script>
+    <script src="js/main.js?v=7.0"></script>
 
 
 
