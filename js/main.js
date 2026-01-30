@@ -46,17 +46,20 @@ function initNavigation() {
 
 /* Scroll Animations (Intersection Observer) */
 function initScrollAnimations() {
+    // Different options for mobile to ensure smoother triggering
+    const isMobile = window.innerWidth < 768;
+
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: isMobile ? 0.05 : 0.1, // Lower threshold for mobile
+        rootMargin: isMobile ? '0px 0px 0px 0px' : '0px 0px -50px 0px' // Trigger immediately on enter for mobile
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-            } else {
-                entry.target.classList.remove('visible');
+                // Stop observing once it's visible so it doesn't disappear again
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
