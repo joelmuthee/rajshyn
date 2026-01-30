@@ -731,14 +731,8 @@ section {
     will-change: opacity, transform;
 }
 
-/* Enforce animations on mobile - Run immediately on load like Rate Us page */
-@media (max-width: 768px) {
-    .animate-on-scroll {
-        animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
-        opacity: 1;
-        /* Fallback */
-    }
-}
+/* Animations on mobile: logic handled by JS IntersectionObserver */
+
 
 .animate-on-scroll.visible {
     animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;

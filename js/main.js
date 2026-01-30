@@ -45,63 +45,26 @@ function initNavigation() {
 }
 
 
-/* Scroll Animations (Intersection Observer & Fallback) */
+/* Scroll Animations (Intersection Observer) */
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
-    // Function to trigger animation
-    const reveal = (element) => {
-        if (!element.classList.contains('visible')) {
-            element.classList.add('visible');
-        }
+    // Universal options for accurate triggering on all devices
+    const observerOptions = {
+        threshold: 0,           // Trigger as soon as any part is visible
+        rootMargin: '0px 0px -20px 0px' // Slight offset to ensure element is actually entering viewport
     };
 
-    // 1. Intersection Observer (Primary Method)
-    if ('IntersectionObserver' in window) {
-        const observerOptions = {
-            threshold: 0.1, // Trigger when 10% visible
-            rootMargin: '0px 0px -50px 0px' // Offset slightly
-        };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
 
-        // Mobile-specific adjustments
-        if (window.innerWidth < 768) {
-            observerOptions.threshold = 0; // Trigger immediately
-            observerOptions.rootMargin = '0px'; // No offset
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    reveal(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        animatedElements.forEach(el => observer.observe(el));
-    } else {
-        // Fallback for no Observer support
-        animatedElements.forEach(el => reveal(el));
-    }
-
-    // 2. Scroll Event Fallback (Secondary Method for Mobile Reliability)
-    // Sometimes Observers can be sluggish on specific mobile viewports/browsers
-    if (window.innerWidth < 768) {
-        const checkScroll = () => {
-            const triggerBottom = window.innerHeight * 0.9; // Trigger at 90% of viewport height
-
-            animatedElements.forEach(el => {
-                const boxTop = el.getBoundingClientRect().top;
-                if (boxTop < triggerBottom) {
-                    reveal(el);
-                }
-            });
-        };
-
-        window.addEventListener('scroll', checkScroll);
-        // Run once on load to catch Hero elements
-        checkScroll();
-    }
+    animatedElements.forEach(el => observer.observe(el));
 }
 
 /* Lazy Loading Images */
