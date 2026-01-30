@@ -49,17 +49,13 @@ function initNavigation() {
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
-    // Mobile Override: Trigger all animations immediately to ensure visibility
-    // This matches the "Rate Us" page behavior where content appears on load.
-    if (window.innerWidth < 768) {
-        animatedElements.forEach(el => el.classList.add('visible'));
-        return;
-    }
-
-    // Desktop: Use Intersection Observer for scroll effects
+    // Standard Observer for all devices
+    // threshold: 0.1 means 10% must be visible. 
+    // On mobile, sometimes big elements don't get 10% visible easily if they are huge.
+    // We use 0.01 (1%) to trigger almost immediately upon entry, but definitely ON entry.
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.01,
+        rootMargin: '0px 0px -20px 0px'
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
