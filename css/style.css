@@ -778,10 +778,18 @@ section {
     position: relative;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    /* Parallax effect */
+    background-attachment: scroll;
+    /* Default to scroll for mobile stability */
     text-align: center;
-    overflow: hidden;
+    overflow: visible;
+    /* Prevent clipping of animations */
+}
+
+@media (min-width: 1024px) {
+    .page-header {
+        background-attachment: fixed;
+        /* Restore parallax for desktop */
+    }
 }
 
 .page-header::before {
