@@ -26,8 +26,8 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://rajshynjewellers.com/">
 
-    <link rel="icon" href="assets/images/favicon.png?v=12.0" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=12.0">
+    <link rel="icon" href="assets/images/favicon.png?v=13.0" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=13.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -146,26 +146,43 @@
       ]
     }
     </script>
-    <!-- Critical Animation CSS (Inline to ensure mobile execution like Rate Us page) -->
+    <!-- Critical Animation CSS (Inline for Mobile Performance) -->
     <style>
         .fade-in-up {
+            /* Use !important ONLY on the animation property to enforce it runs */
             animation: fadeInUp 0.8s ease forwards !important;
-            opacity: 0 !important;
-            transform: translateY(30px) !important;
+            -webkit-animation: fadeInUp 0.8s ease forwards !important;
+
+            /* Base state */
+            opacity: 0;
+            transform: translateY(30px);
+            -webkit-transform: translateY(30px);
+
+            /* Performance hint */
+            will-change: opacity, transform;
         }
 
         .delay-200 {
             animation-delay: 0.2s !important;
+            -webkit-animation-delay: 0.2s !important;
         }
 
         .delay-400 {
             animation-delay: 0.4s !important;
+            -webkit-animation-delay: 0.4s !important;
         }
 
         @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @-webkit-keyframes fadeInUp {
+            to {
+                opacity: 1;
+                -webkit-transform: translateY(0);
             }
         }
     </style>
@@ -560,7 +577,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=12.0"></script>
+    <script src="js/main.js?v=13.0"></script>
 
 
 
