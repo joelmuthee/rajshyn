@@ -26,8 +26,8 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://rajshynjewellers.com/">
 
-    <link rel="icon" href="assets/images/favicon.png?v=16.0" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=16.0">
+    <link rel="icon" href="assets/images/favicon.png?v=17.0" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=17.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -146,12 +146,17 @@
       ]
     }
     </script>
-    <!-- Proven Animation CSS from Rate Us Page -->
+    <!-- Proven Animation CSS + Layering Fix -->
     <style>
         .fade-in-up {
             animation: fadeInUp 0.8s ease forwards;
             opacity: 0;
             transform: translateY(20px);
+
+            position: relative;
+            z-index: 100 !important;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .delay-200 {
@@ -561,7 +566,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=16.0"></script>
+    <script src="js/main.js?v=17.0"></script>
 
 
 
