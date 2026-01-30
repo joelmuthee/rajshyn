@@ -45,20 +45,23 @@ function initNavigation() {
 }
 
 /* Scroll Animations (Intersection Observer) */
+/* Scroll Animations (Intersection Observer) */
 function initScrollAnimations() {
-    // Different options for mobile to ensure smoother triggering
-    const isMobile = window.innerWidth < 768;
-
     const observerOptions = {
-        threshold: isMobile ? 0.05 : 0.1, // Lower threshold for mobile
-        rootMargin: isMobile ? '0px 0px 0px 0px' : '0px 0px -50px 0px' // Trigger immediately on enter for mobile
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
+
+    // Mobile fallback: If observer not supported or weirdness, show all
+    if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('visible'));
+        return;
+    }
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Stop observing once it's visible so it doesn't disappear again
                 observer.unobserve(entry.target);
             }
         });
@@ -66,6 +69,18 @@ function initScrollAnimations() {
 
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => observer.observe(el));
+
+    // Safety Fallback: Ensure everything is visible after 2 seconds on mobile
+    // This handles cases where scroll events might not trigger the observer
+    if (window.innerWidth < 768) {
+        setTimeout(() => {
+            animatedElements.forEach(el => {
+                if (!el.classList.contains('visible')) {
+                    el.classList.add('visible');
+                }
+            });
+        }, 1000); // 1 second safety delay
+    }
 }
 
 /* Lazy Loading Images */
