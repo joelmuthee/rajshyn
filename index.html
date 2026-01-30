@@ -26,8 +26,8 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://rajshynjewellers.com/">
 
-    <link rel="icon" href="assets/images/favicon.png?v=7.0" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=7.0">
+    <link rel="icon" href="assets/images/favicon.png?v=8.0" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=8.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -146,31 +146,6 @@
       ]
     }
     </script>
-    <!-- Critical Animation CSS (Inline to match rate-us.html behavior) -->
-    <style>
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease forwards;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Stagger delays handled by JS now */
-        .fade-in-up {
-            /* Animation definition remains the same */
-        }
-
-        .hero-wait {
-            opacity: 0;
-            /* Start hidden until JS activates it */
-        }
-    </style>
 </head>
 
 <body>
@@ -234,21 +209,6 @@
                 Collections</a>
         </div>
     </section>
-
-    <script>
-        // Force animations to start ONLY after the heavy page is fully loaded
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                const elements = document.querySelectorAll('.hero-wait');
-                elements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.classList.remove('hero-wait');
-                        el.classList.add('fade-in-up');
-                    }, index * 300); // 300ms Stagger
-                });
-            }, 100); // Safety buffer after load
-        });
-    </script>
 
     <!-- Jewelry Categories -->
     <section class="categories-section">
@@ -577,7 +537,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=7.0"></script>
+    <script src="js/main.js?v=8.0"></script>
 
 
 
