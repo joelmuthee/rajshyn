@@ -740,6 +740,14 @@ section {
     transform: translateY(0);
 }
 
+/* Immediate animation for Hero sections (Bypasses JS Observer) */
+.hero-animate {
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    opacity: 0;
+    /* Start hidden, animation handles the rest */
+    transform: translateY(30px);
+}
+
 /* Stagger Delays - utilizing animation-delay */
 .delay-100 {
     animation-delay: 0.1s;
