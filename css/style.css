@@ -712,7 +712,8 @@ section {
 }
 
 /* Animations */
-@keyframes fadeUp {
+/* Animations */
+@keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(40px);
@@ -721,16 +722,6 @@ section {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
     }
 }
 
@@ -743,18 +734,16 @@ section {
 /* Enforce animations on mobile - Run immediately on load like Rate Us page */
 @media (max-width: 768px) {
     .animate-on-scroll {
-        animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
+        animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
         opacity: 1;
         /* Fallback */
     }
 }
 
 .animate-on-scroll.visible {
-    animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     opacity: 1;
-    /* Fallback for layout */
     transform: translateY(0);
-    /* Fallback */
 }
 
 /* Stagger Delays - utilizing animation-delay */
