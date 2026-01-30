@@ -84,7 +84,38 @@ function initLazyLoading() {
                 }
             });
         });
+        // Global Hero Animation Loader (Matches Rate Us page success)
+        // Replaced 'window.load' with a multi-trigger approach to avoid waiting for hanging external scripts
+        function revealHero() {
+            const elements = document.querySelectorAll('.hero-wait');
+            if (elements.length > 0) {
+                // Check if already revealed to prevent double runs
+                if (elements[0].classList.contains('revealed-processed')) return;
 
+                elements.forEach((el, index) => {
+                    el.classList.add('revealed-processed'); // Mark as processed
+                    setTimeout(() => {
+                        el.classList.remove('hero-wait');
+
+                        // Force Reflow
+                        void el.offsetWidth;
+
+                        el.classList.add('fade-in-up');
+                    }, index * 300);
+                });
+            }
+        }
+
+        // Trigger 1: DOMContentLoaded + 500ms (Fastest)
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(revealHero, 500);
+        });
+
+        // Trigger 2: window.load (Backup for perfect rendering)
+        window.addEventListener('load', revealHero);
+
+        // Trigger 3: Failsafe (3 seconds max wait)
+        setTimeout(revealHero, 3000);
         images.forEach(img => imageObserver.observe(img));
     } else {
         // Fallback for older browsers
