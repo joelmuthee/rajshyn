@@ -24,41 +24,16 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://rajshynjewellers.com/collections.html">
 
-    <link rel="icon" href="assets/images/favicon.png?v=13.0" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=13.0">
+    <link rel="icon" href="assets/images/favicon.png?v=14.0" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=14.0">
     <!-- Critical Animation CSS -->
+    <!-- Custom Hero Animation: Default Visible -->
     <style>
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease forwards !important;
-            -webkit-animation: fadeInUp 0.8s ease forwards !important;
-            opacity: 0;
-            transform: translateY(30px);
-            -webkit-transform: translateY(30px);
+        .animate-hero {
+            opacity: 1;
+            animation: heroFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             will-change: opacity, transform;
         }
-
-        .delay-200 {
-            animation-delay: 0.2s !important;
-            -webkit-animation-delay: 0.2s !important;
-        }
-
-        .delay-300 {
-            animation-delay: 0.3s !important;
-            -webkit-animation-delay: 0.3s !important;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @-webkit-keyframes fadeInUp {
-            to {
-                opacity: 1;
-                -webkit-transform: translateY(0);
-            }
         }
     </style>
 </head>
@@ -114,9 +89,9 @@
     <!-- Page Header -->
     <header class="page-header">
         <div class="container text-center">
-            <h1 class="fade-in-up">Our Collection</h1>
-            <p class="fade-in-up delay-200">Explore our exquisite range of gold jewelry.</p>
-            <div class="gold-divider fade-in-up delay-300"></div>
+            <h1 class="animate-hero">Our Collection</h1>
+            <p class="animate-hero delay-200">Explore our exquisite range of gold jewelry.</p>
+            <div class="gold-divider animate-hero delay-300"></div>
         </div>
     </header>
 
@@ -377,7 +352,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=13.0"></script>
+    <script src="js/main.js?v=14.0"></script>
 
 
 

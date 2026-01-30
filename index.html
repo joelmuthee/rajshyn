@@ -26,8 +26,8 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://rajshynjewellers.com/">
 
-    <link rel="icon" href="assets/images/favicon.png?v=13.0" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=13.0">
+    <link rel="icon" href="assets/images/favicon.png?v=14.0" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=14.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -146,43 +146,32 @@
       ]
     }
     </script>
-    <!-- Critical Animation CSS (Inline for Mobile Performance) -->
+    <!-- Custom Hero Animation: Default Visible -->
     <style>
-        .fade-in-up {
-            /* Use !important ONLY on the animation property to enforce it runs */
-            animation: fadeInUp 0.8s ease forwards !important;
-            -webkit-animation: fadeInUp 0.8s ease forwards !important;
-
-            /* Base state */
-            opacity: 0;
-            transform: translateY(30px);
-            -webkit-transform: translateY(30px);
-
-            /* Performance hint */
+        .animate-hero {
+            opacity: 1;
+            animation: heroFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             will-change: opacity, transform;
+            transform: translateZ(0);
         }
 
         .delay-200 {
-            animation-delay: 0.2s !important;
-            -webkit-animation-delay: 0.2s !important;
+            animation-delay: 0.2s;
         }
 
         .delay-400 {
-            animation-delay: 0.4s !important;
-            -webkit-animation-delay: 0.4s !important;
+            animation-delay: 0.4s;
         }
 
-        @keyframes fadeInUp {
-            to {
+        @keyframes heroFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @-webkit-keyframes fadeInUp {
-            to {
-                opacity: 1;
-                -webkit-transform: translateY(0);
             }
         }
     </style>
@@ -243,9 +232,9 @@
         </div>
         <div class="container hero-content">
             <!-- Used hero-wait to ensure animation only starts AFTER full page load -->
-            <h1 class="fade-in-up">Exquisite Jewelry for Every Occasion</h1>
-            <p class="fade-in-up delay-200">Where timeless elegance meets modern craftsmanship.</p>
-            <a href="collections.html" class="btn btn-primary fade-in-up delay-400">Explore
+            <h1 class="animate-hero">Exquisite Jewelry for Every Occasion</h1>
+            <p class="animate-hero delay-200">Where timeless elegance meets modern craftsmanship.</p>
+            <a href="collections.html" class="btn btn-primary animate-hero delay-400">Explore
                 Collections</a>
         </div>
     </section>
@@ -577,7 +566,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=13.0"></script>
+    <script src="js/main.js?v=14.0"></script>
 
 
 

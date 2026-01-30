@@ -23,41 +23,44 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://rajshynjewellers.com/contact.html">
 
-    <link rel="icon" href="assets/images/favicon.png?v=13.0" type="image/png">
-    <link rel="stylesheet" href="css/style.css?v=13.0">
-    <!-- Critical Animation CSS -->
+    <link rel="icon" href="assets/images/favicon.png?v=14.0" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=14.0">
+    <!-- Custom Hero Animation: Default Visible to prevent hidden content -->
     <style>
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease forwards !important;
-            -webkit-animation: fadeInUp 0.8s ease forwards !important;
-            opacity: 0;
-            transform: translateY(30px);
-            -webkit-transform: translateY(30px);
+        .animate-hero {
+            /* Default visible so it never hangs hidden */
+            opacity: 1;
+            animation: heroFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            /* Ensure it is promoted to layer */
             will-change: opacity, transform;
+            transform: translateZ(0);
+            /* Hardware Acceleration */
         }
 
         .delay-200 {
-            animation-delay: 0.2s !important;
-            -webkit-animation-delay: 0.2s !important;
+            animation-delay: 0.2s;
         }
 
         .delay-300 {
-            animation-delay: 0.3s !important;
-            -webkit-animation-delay: 0.3s !important;
+            animation-delay: 0.3s;
         }
 
-        @keyframes fadeInUp {
-            to {
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes heroFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
-        @-webkit-keyframes fadeInUp {
-            to {
-                opacity: 1;
-                -webkit-transform: translateY(0);
-            }
+        }
         }
     </style>
 </head>
@@ -113,9 +116,9 @@
     <!-- Page Header -->
     <header class="page-header">
         <div class="container text-center">
-            <h1 class="fade-in-up">Get in Touch</h1>
-            <p class="fade-in-up delay-200">We are here to assist you with all your jewelry needs.</p>
-            <div class="gold-divider fade-in-up delay-300"></div>
+            <h1 class="animate-hero">Get in Touch</h1>
+            <p class="animate-hero delay-200">We are here to assist you with all your jewelry needs.</p>
+            <div class="gold-divider animate-hero delay-300"></div>
         </div>
     </header>
 
@@ -369,7 +372,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=13.0"></script>
+    <script src="js/main.js?v=14.0"></script>
 
 
 
