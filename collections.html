@@ -29,42 +29,7 @@
     <!-- Critical Animation CSS -->
     <!-- Proven Animation CSS + Layering Fix -->
     <!-- Proven Animation CSS: Mobile = Fade Only, Desktop = Fade Up -->
-    <style>
-        .fade-in-up {
-            opacity: 0;
-            animation: heroRevealMobile 0.8s ease forwards;
-            position: relative;
-            z-index: 100 !important;
-        }
-
-        .delay-200 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-300 {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes heroRevealMobile {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .fade-in-up {
-                transform: translateY(20px);
-                animation-name: heroReveal;
-            }
-
-            @keyframes heroReveal {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-        }
-    </style>
+    <!-- Animation CSS: Styles controlled via css/style.css -->
 </head>
 
 <body>
@@ -72,7 +37,7 @@
     <!-- Navigation -->
     <header class="main-header scrolled">
         <div class="container nav-container">
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
                 <img src="assets/images/logo.png" alt="Rajshyn Jewellers Logo">
             </a>
 
@@ -84,7 +49,7 @@
 
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="about.html">Our Heritage</a></li>
                     <li><a href="collections.html" class="active">Collection</a></li>
                     <li><a href="rate-us.html">Rate Us</a></li>
@@ -286,7 +251,7 @@
     <footer class="main-footer">
         <div class="container footer-grid">
             <div class="footer-col animate-on-scroll delay-100">
-                <a href="index.html">
+                <a href="/">
                     <img src="assets/images/logo.png" alt="Rajshyn Jewellers" class="footer-logo">
                 </a>
                 <p>Redefining luxury.</p>

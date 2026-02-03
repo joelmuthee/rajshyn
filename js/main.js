@@ -54,7 +54,7 @@ function initScrollAnimations() {
     // preventing it from triggering effectively "off screen" or at the very edge.
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -10% 0px'
     };
 
     const observer = new IntersectionObserver((entries, observer) => {

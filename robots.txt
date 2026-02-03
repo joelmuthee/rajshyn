@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rajshynjewellers.com/sitemap.xml
+
+Disallow: /tmp/
+Disallow: /pages/
+Disallow: /assets/
+Disallow: /*.zip
+Disallow: /*.bak
+Disallow: /*-clone
