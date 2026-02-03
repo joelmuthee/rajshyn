@@ -64,9 +64,10 @@ function initScrollAnimations() {
     // Standard Observer for all devices
     // Increased -100px margin ensures user has definitely scrolled TO the element
     // preventing it from triggering effectively "off screen" or at the very edge.
+    // Mobile-optimized observer settings
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -10% 0px'
+        threshold: 0, // Trigger as soon as ANY part is visible
+        rootMargin: '0px 0px -5% 0px' // Slightly negative buffer
     };
 
     const observer = new IntersectionObserver((entries, observer) => {

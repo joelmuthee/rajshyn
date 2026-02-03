@@ -805,6 +805,66 @@ section {
     }
 }
 
+/* 
+   =========================================
+   MOBILE ANIMATION OVERRIDES (Robust Failsafe)
+   =========================================
+   Forces animations to run automatically on mobile 
+   without waiting for JavaScript.
+*/
+@media (max-width: 768px) {
+
+    /* Hero: Run immediately */
+    .hero-animate {
+        opacity: 0;
+        animation: fadeInMobile 1s ease-out forwards !important;
+        transition: none !important;
+        transform: none !important;
+    }
+
+    /* Base delay + stagger */
+    .hero-animate {
+        animation-delay: 0.1s !important;
+    }
+
+    .hero-animate.delay-200 {
+        animation-delay: 0.3s !important;
+    }
+
+    .hero-animate.delay-300 {
+        animation-delay: 0.5s !important;
+    }
+
+    .hero-animate.delay-400 {
+        animation-delay: 0.7s !important;
+    }
+
+    /* Scroll Elements: Use simpler transition */
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+    }
+
+    .animate-on-scroll.visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        animation: none !important;
+    }
+
+    @keyframes fadeInMobile {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
 /* Ensure Page Headers use Flexbox for centering on mobile */
 @media (max-width: 768px) {
     .page-header {
