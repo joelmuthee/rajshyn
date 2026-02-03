@@ -865,7 +865,7 @@ section {
     }
 }
 
-/* Ensure Page Headers use Flexbox for centering on mobile */
+
 @media (max-width: 768px) {
     .page-header {
         display: flex;
