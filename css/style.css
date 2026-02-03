@@ -814,53 +814,77 @@ section {
 */
 @media (max-width: 768px) {
 
-    /* Hero: Run immediately */
-    .hero-animate {
+    /* 
+       mobile-animation-fix: 
+       Force ALL animations to run immediately on load.
+       This ensures visibility even if JS fails or scroll events miss.
+       Sacrifices 'reveal on scroll' for 'guaranteed fade-in'.
+    */
+
+    /* HERO & SCROLL ELEMENTS: Run immediately */
+    .hero-animate,
+    .animate-on-scroll {
         opacity: 0;
         animation: fadeInMobile 1s ease-out forwards !important;
+        -webkit-animation: fadeInMobile 1s ease-out forwards !important;
+
         transition: none !important;
         transform: none !important;
+        visibility: visible !important;
+        /* Force visibility render */
     }
 
-    /* Base delay + stagger */
-    .hero-animate {
+    /* Disable JS-based state changes impacting style */
+    .animate-on-scroll.visible,
+    .hero-animate.visible {
+        animation: none !important;
+        opacity: 1 !important;
+        /* Fallback */
+    }
+
+    /* Stagger Delays for Hero (Manual nice-to-have) */
+    .hero-animate.delay-100 {
         animation-delay: 0.1s !important;
+        -webkit-animation-delay: 0.1s !important;
     }
 
     .hero-animate.delay-200 {
         animation-delay: 0.3s !important;
+        -webkit-animation-delay: 0.3s !important;
     }
 
     .hero-animate.delay-300 {
         animation-delay: 0.5s !important;
+        -webkit-animation-delay: 0.5s !important;
     }
 
     .hero-animate.delay-400 {
         animation-delay: 0.7s !important;
+        -webkit-animation-delay: 0.7s !important;
     }
 
-    /* Scroll Elements: Use simpler transition */
-    .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
-    }
-
-    .animate-on-scroll.visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        animation: none !important;
-    }
-
+    /* Keyframes with Webkit Prefix */
     @keyframes fadeInMobile {
         0% {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(15px);
         }
 
         100% {
             opacity: 1;
             transform: translateY(0);
+        }
+    }
+
+    @-webkit-keyframes fadeInMobile {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(15px);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
         }
     }
 }
