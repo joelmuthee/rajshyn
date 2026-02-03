@@ -825,25 +825,18 @@ section {
     .hero-animate,
     .animate-on-scroll {
         opacity: 0;
-        /* START INVISIBLE so we can fade in */
-        animation: fadeInMobile 1s ease-out forwards !important;
-        -webkit-animation: fadeInMobile 1s ease-out forwards !important;
+
+        /* Standard Syntax */
+        animation: fadeInMobile 1.2s ease-out forwards !important;
+        /* Webkit Prefix for iOS/Safari */
+        -webkit-animation: fadeInMobile 1.2s ease-out forwards !important;
 
         transition: none !important;
         transform: none !important;
         visibility: visible !important;
     }
 
-    /* 
-       Keep animation running even if JS adds .visible class.
-       We DO NOT want to cancel the animation with 'none'.
-       We just ensure opacity stays 1 after it's done.
-    */
-    .animate-on-scroll.visible,
-    .hero-animate.visible {
-        /* animation: none !important;  <-- REMOVED: This was killing the animation early */
-        opacity: 1 !important;
-    }
+
 
     /* Stagger Delays for Hero (Manual nice-to-have) */
     .hero-animate.delay-100 {

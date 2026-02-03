@@ -48,6 +48,9 @@ function initNavigation() {
 
 /* Hero Animations (Triggered via JS for Reliability) */
 function initHeroAnimations() {
+    // On Mobile, rely entirely on CSS animations (prevents conflicts)
+    if (window.innerWidth < 769) return;
+
     const heroElements = document.querySelectorAll('.hero-animate');
     setTimeout(() => {
         heroElements.forEach(el => {
