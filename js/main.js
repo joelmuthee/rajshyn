@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
+    initHeroAnimations(); // Explicit JS trigger for Hero
     initScrollAnimations();
     initLazyLoading();
     initBorderBeamAnimations();
@@ -42,6 +43,17 @@ function initNavigation() {
             header.classList.remove('scrolled');
         }
     });
+
+}
+
+/* Hero Animations (Triggered via JS for Reliability) */
+function initHeroAnimations() {
+    const heroElements = document.querySelectorAll('.hero-animate');
+    setTimeout(() => {
+        heroElements.forEach(el => {
+            el.classList.add('visible');
+        });
+    }, 100);
 }
 
 
