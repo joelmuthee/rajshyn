@@ -712,7 +712,16 @@ section {
 }
 
 /* Animations */
-/* Exact replica of Rate Us page animation that works */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -726,14 +735,20 @@ section {
 }
 
 /* 
-   HERO ANIMATION (CSS-ONLY) 
-   Exact styling from Rate Us page (.fade-in-up)
+   HERO ANIMATION 
+   Mobile: Fade Only
+   Desktop: Fade Up
 */
 .hero-animate {
-    animation: fadeInUp 0.8s ease forwards;
     opacity: 0;
-    /* Start hidden */
-    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@media (min-width: 769px) {
+    .hero-animate {
+        transform: translateY(20px);
+        animation: fadeInUp 0.8s ease forwards;
+    }
 }
 
 /* Stagger Delays */
@@ -755,30 +770,26 @@ section {
 
 /* 
    SCROLL ANIMATIONS 
-   Mobile-First Logic: Default Visible (Static)
-*/
-/* 
-   SCROLL ANIMATIONS 
-   Unified Logic: Hidden initially, animate when .visible is added
+   Mobile: Fade Only (opacity)
+   Desktop: Fade Up (opacity + transform)
 */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    will-change: opacity, transform;
+    will-change: opacity;
 }
 
-/* Active State */
 .animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: fadeIn 0.8s ease forwards;
 }
 
-/* Mobile optimizations: Reduced movement for smoother performance */
-@media (max-width: 768px) {
+@media (min-width: 769px) {
     .animate-on-scroll {
-        transform: translateY(20px);
+        transform: translateY(30px);
+        will-change: opacity, transform;
+    }
+
+    .animate-on-scroll.visible {
+        animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     }
 }
 
@@ -797,7 +808,6 @@ section {
 /* Wait Class for JS Loader */
 .hero-wait {
     opacity: 0 !important;
-    /* Force hidden until JS removes this class */
 }
 
 
