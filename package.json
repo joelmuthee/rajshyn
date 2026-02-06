@@ -1,0 +1,9 @@
+{
+  "name": "rajshyn-static",
+  "version": "1.0.0",
+  "description": "Static site deployment helper",
+  "scripts": {
+    "build": "echo 'Build skipped: Static site'"
+  },
+  "dependencies": {}
+}
