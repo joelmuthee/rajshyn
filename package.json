@@ -1,9 +1,0 @@
-{
-    "name": "rajshyn-static",
-    "version": "1.0.0",
-    "description": "Static site deployment helper",
-    "scripts": {
-        "build": "echo 'Deploying static site'"
-    },
-    "dependencies": {}
-}
