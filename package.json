@@ -1,9 +1,9 @@
 {
-  "name": "rajshyn-static",
-  "version": "1.0.0",
-  "description": "Static site deployment helper",
-  "scripts": {
-    "build": "echo 'Build skipped: Static site'"
-  },
-  "dependencies": {}
+    "name": "rajshyn-static",
+    "version": "1.0.0",
+    "description": "Static site deployment helper",
+    "scripts": {
+        "build": "mkdir -p public && cp *.html public/ && cp CNAME public/ && cp robots.txt public/ && cp sitemap.xml public/ && cp .nojekyll public/ && cp -r css public/ && cp -r js public/ && cp -r assets public/"
+    },
+    "dependencies": {}
 }
