@@ -69,7 +69,7 @@ function initScrollAnimations() {
     // preventing it from triggering effectively "off screen" or at the very edge.
     // Mobile-optimized observer settings
     const observerOptions = {
-        threshold: 0, // Trigger as soon as ANY part is visible
+        threshold: 0.1, // Trigger when 10% visible to avoid edge flickering
         rootMargin: '0px 0px -5% 0px' // Slightly negative buffer
     };
 
@@ -77,7 +77,8 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+            } else {
+                entry.target.classList.remove('visible');
             }
         });
     }, observerOptions);
@@ -113,8 +114,15 @@ function initLazyLoading() {
 
 /* Border Beam Animation on Scroll (Mobile) */
 function initBorderBeamAnimations() {
-    const observerOptions = {
-        threshold: 0.5, // Trigger when 50% visible
+    const isMobile = window.innerWidth < 768;
+
+    // Mobile: Strict center focus (middle 20% of screen) to ensure one-at-a-time (no overlap)
+    // Desktop: lenient 50% visibility
+    const observerOptions = isMobile ? {
+        threshold: 0,
+        rootMargin: '-40% 0px -40% 0px'
+    } : {
+        threshold: 0.5,
         rootMargin: '0px'
     };
 
@@ -122,13 +130,7 @@ function initBorderBeamAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active-beam');
-                // Optional: Stop observing once activated if you want it to happen only once
-                // beamObserver.unobserve(entry.target);
             } else {
-                // Optional: Remove class when out of view to re-trigger animation?
-                // For a 'beam' effect, keeping it active usually looks better, or toggling it.
-                // User said 'appear as you scroll', implying strictly when in view.
-                // Let's remove it when out of view so it re-animates nicely as they scroll up/down.
                 entry.target.classList.remove('active-beam');
             }
         });

@@ -787,22 +787,22 @@ section {
 */
 .animate-on-scroll {
     opacity: 0;
-    will-change: opacity;
+    transform: translateY(20px);
+    will-change: opacity, transform;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .animate-on-scroll.visible {
-    animation: fadeIn 0.8s ease forwards;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (min-width: 769px) {
     .animate-on-scroll {
-        transform: translateY(30px);
-        will-change: opacity, transform;
+        transform: translateY(40px);
     }
 
-    .animate-on-scroll.visible {
-        animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    }
+    /* Transition is already inherited from base, trigger via .visible */
 }
 
 /* 
@@ -821,9 +821,8 @@ section {
        Sacrifices 'reveal on scroll' for 'guaranteed fade-in'.
     */
 
-    /* HERO & SCROLL ELEMENTS: Run immediately */
-    .hero-animate,
-    .animate-on-scroll {
+    /* HERO ELEMENTS: Run immediately (JS skipped on mobile) */
+    .hero-animate {
         opacity: 0;
 
         /* Standard Syntax */
