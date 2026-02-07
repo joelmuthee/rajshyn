@@ -108,28 +108,75 @@ function initLazyLoading() {
 function initBorderBeamAnimations() {
     const isMobile = window.innerWidth < 768;
 
-    // Mobile: Ultra-strict center focus (middle 10% of screen) 
-    // to absolutely prevent overlap on short cards like Showrooms
-    const observerOptions = isMobile ? {
-        threshold: 0,
-        rootMargin: '-45% 0px -45% 0px'
-    } : {
-        threshold: 0.5,
-        rootMargin: '0px'
-    };
+    if (isMobile) {
+        // Mobile: Strict "King of the Hill" logic
+        // Only ONE element can be active at a time based on which is MOST visible.
+        const observerOptions = {
+            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], // Granular tracking
+            rootMargin: '-25% 0px -25% 0px' // Focus on center 50% of screen
+        };
 
-    const beamObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active-beam');
+        const beamObserver = new IntersectionObserver((entries) => {
+            // 1. Find all currently observed elements
+            const allElements = document.querySelectorAll('.category-card, .value-item, .showroom-card, .showroom-home-card');
+
+            // 2. Determine which element is currently the "most visible" center item
+            let maxRatio = 0;
+            let bestCandidate = null;
+
+            entries.forEach(entry => {
+                // Update our knowledge of this element's visibility
+                entry.target.dataset.intersectionRatio = entry.intersectionRatio;
+            });
+
+            // Check ALL elements to find the winner
+            allElements.forEach(el => {
+                const ratio = parseFloat(el.dataset.intersectionRatio || 0);
+                if (ratio > maxRatio) {
+                    maxRatio = ratio;
+                    bestCandidate = el;
+                }
+            });
+
+            // 3. Apply classes strictly: Winner gets 'active-beam', everyone else loses it.
+            if (maxRatio > 0.1 && bestCandidate) {
+                allElements.forEach(el => {
+                    if (el === bestCandidate) {
+                        el.classList.add('active-beam');
+                    } else {
+                        el.classList.remove('active-beam');
+                    }
+                });
             } else {
-                entry.target.classList.remove('active-beam');
+                // If nothing is significantly visible, clear all
+                allElements.forEach(el => el.classList.remove('active-beam'));
             }
-        });
-    }, observerOptions);
 
-    const beamElements = document.querySelectorAll('.category-card, .value-item, .showroom-card, .showroom-home-card');
-    beamElements.forEach(el => beamObserver.observe(el));
+        }, observerOptions);
+
+        const beamElements = document.querySelectorAll('.category-card, .value-item, .showroom-card, .showroom-home-card');
+        beamElements.forEach(el => beamObserver.observe(el));
+
+    } else {
+        // Desktop: Standard behavior (lenient)
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const beamObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active-beam');
+                } else {
+                    entry.target.classList.remove('active-beam');
+                }
+            });
+        }, observerOptions);
+
+        const beamElements = document.querySelectorAll('.category-card, .value-item, .showroom-card, .showroom-home-card');
+        beamElements.forEach(el => beamObserver.observe(el));
+    }
 }
 
 
