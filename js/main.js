@@ -62,7 +62,7 @@ function initScrollAnimations() {
     // Mobile-optimized observer settings
     const observerOptions = {
         threshold: 0.1, // Trigger when 10% visible to avoid edge flickering
-        rootMargin: '0px 0px -5% 0px' // Slightly negative buffer
+        rootMargin: '-5% 0px -5% 0px' // Symmetric buffer: animate out before fully leaving screen
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
