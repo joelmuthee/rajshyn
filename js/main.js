@@ -46,23 +46,15 @@ function initNavigation() {
 
 }
 
-/* Hero Animations (Triggered via JS for Reliability) */
+/* Hero Animations - now handled by initScrollAnimations for consistency */
 function initHeroAnimations() {
-    // On Mobile, rely entirely on CSS animations (prevents conflicts)
-    if (window.innerWidth < 769) return;
-
-    const heroElements = document.querySelectorAll('.hero-animate');
-    setTimeout(() => {
-        heroElements.forEach(el => {
-            el.classList.add('visible');
-        });
-    }, 100);
+    // Legacy function placeholder - logic moved to initScrollAnimations
 }
 
 
 /* Scroll Animations (Intersection Observer) */
 function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const animatedElements = document.querySelectorAll('.animate-on-scroll, .hero-animate');
 
     // Standard Observer for all devices
     // Increased -100px margin ensures user has definitely scrolled TO the element
@@ -116,11 +108,11 @@ function initLazyLoading() {
 function initBorderBeamAnimations() {
     const isMobile = window.innerWidth < 768;
 
-    // Mobile: Strict center focus (middle 20% of screen) to ensure one-at-a-time (no overlap)
-    // Desktop: lenient 50% visibility
+    // Mobile: Ultra-strict center focus (middle 10% of screen) 
+    // to absolutely prevent overlap on short cards like Showrooms
     const observerOptions = isMobile ? {
         threshold: 0,
-        rootMargin: '-40% 0px -40% 0px'
+        rootMargin: '-45% 0px -45% 0px'
     } : {
         threshold: 0.5,
         rootMargin: '0px'

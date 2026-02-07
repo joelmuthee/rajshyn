@@ -736,30 +736,23 @@ section {
 
 /*
    HERO ANIMATION (TRANSITION-BASED)
-   Mobile: Fade Only via Transition
-   Desktop: Fade Up via Transition
+   Mobile & Desktop: Fade Up via Transition (Unified)
    Triggered by .visible class from JS
 */
 .hero-animate {
     opacity: 0;
-    transition: opacity 1s ease-out;
-    will-change: opacity;
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    will-change: opacity, transform;
 }
 
 .hero-animate.visible {
     opacity: 1;
+    transform: translateY(0);
 }
 
 @media (min-width: 769px) {
-    .hero-animate {
-        transform: translateY(20px);
-        transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-        will-change: opacity, transform;
-    }
-
-    .hero-animate.visible {
-        transform: translateY(0);
-    }
+    /* Desktop specific adjustments if needed (currently unified) */
 }
 
 /* Stagger Delays (Transition Delay) */
@@ -821,23 +814,14 @@ section {
        Sacrifices 'reveal on scroll' for 'guaranteed fade-in'.
     */
 
-    /* HERO ELEMENTS: Run immediately (JS skipped on mobile) */
-    .hero-animate {
-        opacity: 0;
-
-        /* Standard Syntax */
-        animation: fadeInMobile 1.2s ease-out forwards !important;
-        /* Webkit Prefix for iOS/Safari */
-        -webkit-animation: fadeInMobile 1.2s ease-out forwards !important;
-
-        transition: none !important;
-        transform: none !important;
-        visibility: visible !important;
-    }
+    /* HERO ELEMENTS: Controlled by JS Observer now (bidirectional) */
+    /* .hero-animate { } */
 
 
 
     /* Stagger Delays for Hero (Manual nice-to-have) */
+    /* Stagger Delays for Hero (Manual nice-to-have) - Unused by transitions */
+    /*
     .hero-animate.delay-100 {
         animation-delay: 0.1s !important;
         -webkit-animation-delay: 0.1s !important;
@@ -857,6 +841,7 @@ section {
         animation-delay: 0.7s !important;
         -webkit-animation-delay: 0.7s !important;
     }
+    */
 
     /* Keyframes with Webkit Prefix */
     @keyframes fadeInMobile {
